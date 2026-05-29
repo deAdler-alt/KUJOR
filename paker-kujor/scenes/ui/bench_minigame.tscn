@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://benchmini01"]
+
+[ext_resource type="Script" path="res://scripts/minigame/bench_minigame.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/weights.tres" id="2_weights"]
+
+[node name="BenchMinigame" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+weight_database = ExtResource("2_weights")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.12, 0.92)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WeightLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.843, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "20 kg"
+horizontal_alignment = 1
+
+[node name="BarVisual" type="ColorRect" parent="Center/VBox"]
+custom_minimum_size = Vector2(120, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.7, 0.7, 0.75, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="Center/VBox"]
+custom_minimum_size = Vector2(280, 24)
+layout_mode = 2
+max_value = 100.0
+value = 0.0
+show_percentage = true
+
+[node name="RepLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Rep: 0 / 4"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Czas: 45 s"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Mash Z / Space!"
+horizontal_alignment = 1

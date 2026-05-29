@@ -1,0 +1,107 @@
+{
+  "drzwi": {
+    "speaker": "Drzwi",
+    "lines": [
+      "Z piwnicy nie uciekniesz...",
+      "Chyba że po treningu.",
+      "Albo po bossie 140 kg.",
+      "Za drzwiami czeka świat — ale najpierw drop na ławce."
+    ]
+  },
+  "proteina": {
+    "speaker": "Proteina",
+    "lines": [
+      "Smakuje jak plastik.",
+      "+0 do siły, +100 do lore.",
+      "Każdy paker ma swoją. Ty też."
+    ]
+  },
+  "chalk": {
+    "speaker": "Chalk",
+    "lines": [
+      "Biały pył nadziei.",
+      "+10% siły przy wyciskaniu.",
+      "Jak reverb na wokal — lekko, ale robi robotę."
+    ]
+  },
+  "gazeta": {
+    "speaker": "Gazeta",
+    "lines": [
+      "Rap News PL.",
+      "'PRODUCENT Z PIWNICY BIJE REKORD 140 KG'",
+      "Artykuł o tobie. Data: wkrótce."
+    ]
+  },
+  "poster_rap": {
+    "speaker": "Plakat",
+    "lines": [
+      "Plakat polskiej sceny rap.",
+      "Ulubieni artyści patrzą na ciebie z ściany.",
+      "Motyw: NO PAIN NO HOOK."
+    ]
+  },
+  "lustro": {
+    "speaker": "Lustro",
+    "lines": [
+      "Patrzysz w lustro.",
+      "Bicepsy. Klatka. Oczy producenta.",
+      "Kujor — to ty. Rap i pakerka w jednym ciele."
+    ]
+  },
+  "radio": {
+    "speaker": "Radio",
+    "lines": [
+      "Stare radio. Leci polski rap.",
+      "Z — włącz/wyłącz muzykę w tle.",
+      "[ ] regulujesz głośność w menu pauzy lub hubie."
+    ]
+  },
+  "beatpad": {
+    "speaker": "Beatpad",
+    "lines": [
+      "Twój beatpad. Serce studia.",
+      "+5% siły w minigrze. +FLOW w statystykach.",
+      "Tu zaczęła się muzyka. Tu wrócisz po treningu."
+    ]
+  },
+  "przedtreningowka": {
+    "speaker": "Przedtreningówka",
+    "lines": [
+      "JAGODA EKSPLOSJA 9000. Smak chemii i nadziei.",
+      "+8% siły w minigrze. Serce bije jak kick 808.",
+      "Kujor pije i staje się jeszcze większy problem."
+    ]
+  },
+  "kreatyna": {
+    "speaker": "Kreatyna",
+    "lines": [
+      "Słoiczek kreatyny. Klasyk piwnicy.",
+      "+5 wytrzymałości w statystykach.",
+      "Nie magiczna — ale w lore działa zawsze."
+    ]
+  },
+  "shaker": {
+    "speaker": "Shaker",
+    "lines": [
+      "Shaker z resztką proteina-rap blend.",
+      "Grzechot jak hi-hat. +reputacja w oczach Krzyśka.",
+      "Zbierasz — bo detale budują legendę."
+    ]
+  },
+  "mikrofon": {
+    "speaker": "Mikrofon",
+    "lines": [
+      "Stary mikrofon studyjny. Trochę popsuty, dużo charakteru.",
+      "+8 FLOW. Jak go trzymasz — czujesz wers.",
+      "Po 140 kg nagram nim coś w piwnicy."
+    ]
+  },
+  "hub_terminal": {
+    "speaker": "Pak Kujora",
+    "lines": [
+      "PAK KUJORA — profil postaci.",
+      "Statystyki, XP, historia. Styl Doom, vibe piwnicy.",
+      "H wraca do treningu."
+    ]
+  }
+}

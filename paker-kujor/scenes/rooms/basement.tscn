@@ -1,0 +1,215 @@
+[gd_scene load_steps=18 format=3 uid="uid://basement01"]
+
+[ext_resource type="Script" path="res://scripts/rooms/basement.gd" id="1_room"]
+[ext_resource type="PackedScene" uid="uid://player001" path="res://scenes/entities/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://bench001" path="res://scenes/interactables/bench.tscn" id="3_bench"]
+[ext_resource type="PackedScene" uid="uid://npctrener1" path="res://scenes/entities/npc_trener.tscn" id="4_npc"]
+[ext_resource type="PackedScene" uid="uid://collect001" path="res://scenes/interactables/collectible.tscn" id="5_collect"]
+[ext_resource type="PackedScene" uid="uid://doorprop01" path="res://scenes/interactables/door.tscn" id="6_door"]
+[ext_resource type="PackedScene" uid="uid://radioprop1" path="res://scenes/interactables/radio.tscn" id="7_radio"]
+[ext_resource type="PackedScene" uid="uid://dialoguebox01" path="res://scenes/ui/dialogue_box.tscn" id="8_dialogue"]
+[ext_resource type="PackedScene" uid="uid://benchmini01" path="res://scenes/ui/bench_minigame.tscn" id="9_minigame"]
+[ext_resource type="PackedScene" uid="uid://weightmenu01" path="res://scenes/ui/weight_select_menu.tscn" id="10_weight"]
+[ext_resource type="PackedScene" uid="uid://pausemenu01" path="res://scenes/ui/pause_menu.tscn" id="11_pause"]
+
+[sub_resource type="RectangleShape2D" id="wall_top"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="wall_bottom"]
+size = Vector2(640, 20)
+
+[sub_resource type="RectangleShape2D" id="wall_left"]
+size = Vector2(20, 360)
+
+[sub_resource type="RectangleShape2D" id="wall_right"]
+size = Vector2(20, 360)
+
+[sub_resource type="RectangleShape2D" id="shelf_block"]
+size = Vector2(80, 24)
+
+[sub_resource type="RectangleShape2D" id="pillar"]
+size = Vector2(24, 24)
+
+[node name="Basement" type="Node2D"]
+script = ExtResource("1_room")
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.12, 0.11, 0.14, 1)
+
+[node name="Decor" type="Node2D" parent="."]
+
+[node name="GoldenCorner" type="ColorRect" parent="Decor"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 80.0
+color = Color(0.18, 0.15, 0.08, 1)
+
+[node name="GoldenLabel" type="Label" parent="Decor"]
+offset_left = 28.0
+offset_top = 28.0
+offset_right = 116.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0.843, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "GOLDEN GYM"
+horizontal_alignment = 1
+
+[node name="ShelfArea" type="ColorRect" parent="Decor"]
+offset_left = 520.0
+offset_top = 24.0
+offset_right = 616.0
+offset_bottom = 100.0
+color = Color(0.2, 0.16, 0.12, 1)
+
+[node name="ShelfLabel" type="Label" parent="Decor"]
+offset_left = 528.0
+offset_top = 28.0
+offset_right = 608.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 10
+text = "REGAŁ"
+horizontal_alignment = 1
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallTop" type="StaticBody2D" parent="Walls"]
+position = Vector2(320, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallTop"]
+shape = SubResource("wall_top")
+
+[node name="WallBottom" type="StaticBody2D" parent="Walls"]
+position = Vector2(320, 350)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallBottom"]
+shape = SubResource("wall_bottom")
+
+[node name="WallLeft" type="StaticBody2D" parent="Walls"]
+position = Vector2(10, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallLeft"]
+shape = SubResource("wall_left")
+
+[node name="WallRight" type="StaticBody2D" parent="Walls"]
+position = Vector2(630, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WallRight"]
+shape = SubResource("wall_right")
+
+[node name="ShelfBlock" type="StaticBody2D" parent="Walls"]
+position = Vector2(568, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/ShelfBlock"]
+shape = SubResource("shelf_block")
+
+[node name="Pillar" type="StaticBody2D" parent="Walls"]
+position = Vector2(200, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Pillar"]
+shape = SubResource("pillar")
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Door" parent="Interactables" instance=ExtResource("6_door")]
+position = Vector2(320, 40)
+
+[node name="Bench" parent="Interactables" instance=ExtResource("3_bench")]
+position = Vector2(320, 200)
+
+[node name="NpcTrener" parent="Interactables" instance=ExtResource("4_npc")]
+position = Vector2(100, 140)
+
+[node name="Proteina" parent="Interactables" instance=ExtResource("5_collect")]
+position = Vector2(560, 60)
+item_id = "proteina"
+dialogue_id = "proteina"
+
+[node name="Visual" parent="Interactables/Proteina"]
+color = Color(0.9, 0.2, 0.5, 1)
+
+[node name="Chalk" parent="Interactables" instance=ExtResource("5_collect")]
+position = Vector2(580, 80)
+item_id = "chalk"
+dialogue_id = "chalk"
+
+[node name="Visual" parent="Interactables/Chalk"]
+color = Color(0.95, 0.95, 0.9, 1)
+
+[node name="Gazeta" parent="Interactables" instance=ExtResource("5_collect")]
+position = Vector2(540, 90)
+item_id = "gazeta"
+dialogue_id = "gazeta"
+
+[node name="Visual" parent="Interactables/Gazeta"]
+color = Color(0.85, 0.8, 0.6, 1)
+
+[node name="PosterGolden" parent="Interactables" instance=ExtResource("5_collect")]
+position = Vector2(72, 56)
+item_id = "poster_golden"
+dialogue_id = "poster_golden"
+
+[node name="Visual" parent="Interactables/PosterGolden"]
+offset_left = -12.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = 16.0
+color = Color(1, 0.843, 0, 1)
+
+[node name="Lustro" parent="Interactables" instance=ExtResource("5_collect")]
+position = Vector2(160, 56)
+item_id = "lustro"
+dialogue_id = "lustro"
+
+[node name="Visual" parent="Interactables/Lustro"]
+offset_left = -14.0
+offset_top = -18.0
+offset_right = 14.0
+offset_bottom = 18.0
+color = Color(0.6, 0.75, 0.85, 1)
+
+[node name="Radio" parent="Interactables" instance=ExtResource("7_radio")]
+position = Vector2(500, 300)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(320, 300)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" parent="UI" instance=ExtResource("8_dialogue")]
+
+[node name="BenchMinigame" parent="UI" instance=ExtResource("9_minigame")]
+
+[node name="WeightSelectMenu" parent="UI" instance=ExtResource("10_weight")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("11_pause")]
+
+[node name="Hud" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WeightHud" type="Label" parent="UI/Hud"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 10
+text = "Max: 20 kg | F5 zapis"
+
+[node name="CreditsLabel" type="Label" parent="UI/Hud"]
+visible = false
+offset_left = 160.0
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(1, 0.843, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "PAKER KUJOR — credits"
+horizontal_alignment = 1

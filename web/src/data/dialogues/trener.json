@@ -1,0 +1,71 @@
+{
+  "krzysiek_intro": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "Elo ziom. Krzysiek — twój trener i współlokator piwnicy.",
+      "Ty to Kujor: producent, fan polskiego rapu, paker z bicepsami jak sandały.",
+      "Ławka czeka. Zacznij od 20 kg.",
+      "Między seriami słuchaj swoich beatów. Tak się buduje pak."
+    ]
+  },
+  "krzysiek_reminder": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "Ławka czeka. Bicepsy też.",
+      "Im ciężej, tym szybciej spada pasek postępu.",
+      "Chalk daje +10%. Beatpad +5%. Szukaj sprzętu."
+    ]
+  },
+  "krzysiek_after_40": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "40 kg? Spoko. Klatka rośnie w rytm polskiego rapu.",
+      "60 kg następne. Jak drop na beatpadzie — bez wstępu."
+    ]
+  },
+  "krzysiek_after_60": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "60 kg to już poważna scena.",
+      "Od 80 kg masz limit czasu. Jak countdown przed wejściem na stage."
+    ]
+  },
+  "krzysiek_after_80": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "80 kg w kieszeni. Respekt, ziom.",
+      "100 kg — granica między amatorem a headlinerem piwnicy."
+    ]
+  },
+  "krzysiek_after_100": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "100 kg! Ten mix na beatpadzie brzmi teraz ciężej.",
+      "120 kg — prawie boss. Bicepsy gotowe na feat."
+    ]
+  },
+  "krzysiek_before_boss": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "140 kg czeka. Boss piwnicy.",
+      "Dwie fazy. Zero litości.",
+      "Jak wygrasz — Pak Kujora zostaje na zawsze."
+    ]
+  },
+  "krzysiek_boss_win": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "140 KG! NIESAMOWITE!",
+      "H — Pak Kujora. Statystyki, XP, historia.",
+      "Teraz nagrywamy numer o tej ławce."
+    ]
+  },
+  "krzysiek_true_ending": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "Zebrałeś cały sprzęt. Beatpad, plakaty, lore.",
+      "TRUE ENDING: Kujor — producent, paker, legenda piwnicy.",
+      "* fanfare w twojej głowie, 808 w sercu *"
+    ]
+  }
+}

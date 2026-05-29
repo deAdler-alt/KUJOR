@@ -1,0 +1,20 @@
+{
+  "name": "paker-kujor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "assets": "python3 scripts/generate_assets.py && python3 scripts/generate_music.py",
+    "music": "python3 scripts/generate_music.py"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}

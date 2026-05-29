@@ -1,0 +1,73 @@
+{
+  "trener_intro": {
+    "speaker": "Trener",
+    "lines": [
+      "Witaj w piwnicy. Tu nie ma ucieczki.",
+      "W Undertale walczysz z sercami.",
+      "Tu walczysz z sercami i klatą.",
+      "Podejdź do ławki. Zacznij od 20 kg.",
+      "Spamuj Z jakby od tego zależało twoje XP."
+    ]
+  },
+  "trener_reminder": {
+    "speaker": "Trener",
+    "lines": [
+      "Ławka czeka. Z niecierpliwością.",
+      "Pamiętaj: im ciężej, tym szybciej spada pasek.",
+      "Chalk daje +10% siły. Szukaj go na regale."
+    ]
+  },
+  "trener_after_40": {
+    "speaker": "Trener",
+    "lines": [
+      "40 kg? Dobra robota.",
+      "Teraz 60. Twoja klatka robi *dźwięk level up*."
+    ]
+  },
+  "trener_after_60": {
+    "speaker": "Trener",
+    "lines": [
+      "60 kg to już poważna sprawa.",
+      "Od 80 kg masz limit czasu. Nie odpoczywaj."
+    ]
+  },
+  "trener_after_80": {
+    "speaker": "Trener",
+    "lines": [
+      "80 kg za tobą. Respekt.",
+      "100 kg to granica między człowiekiem a legendą piwnicy."
+    ]
+  },
+  "trener_after_100": {
+    "speaker": "Trener",
+    "lines": [
+      "100 kg! Golden Gym byłby dumny.",
+      "120 kg — prawie boss. Przygotuj palce."
+    ]
+  },
+  "trener_before_boss": {
+    "speaker": "Trener",
+    "lines": [
+      "140 kg czeka.",
+      "To boss. Dwie fazy. Zero litości.",
+      "Jak wygrasz — jesteś Pakerem Kujorem na zawsze."
+    ]
+  },
+  "trener_boss_win": {
+    "speaker": "Trener",
+    "lines": [
+      "140 KG! NIESAMOWITE!",
+      "Piwnica składa ci hołd.",
+      "Możesz zbierać resztę lore albo po prostu flexować."
+    ]
+  },
+  "trener_golden_ending": {
+    "speaker": "Trener",
+    "lines": [
+      "Zebrałeś wszystko. Proteina, chalk, gazeta...",
+      "Golden Gym i Undertale w jednym.",
+      "TRUE ENDING: Paker Kujor — Legenda Piwnicy.",
+      "* fanfare w twojej głowie *"
+    ]
+  }
+}

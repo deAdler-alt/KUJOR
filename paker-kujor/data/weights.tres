@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="WeightDatabase" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/minigame/weight_database.gd" id="1_db"]
+[ext_resource type="Script" path="res://scripts/minigame/weight_config.gd" id="2_wc"]
+
+[sub_resource type="Resource" id="w20"]
+script = ExtResource("2_wc")
+weight_kg = 20
+label = "20 kg"
+press_gain = 8.0
+decay_per_sec = 12.0
+time_limit_sec = 0.0
+is_boss = false
+
+[sub_resource type="Resource" id="w40"]
+script = ExtResource("2_wc")
+weight_kg = 40
+label = "40 kg"
+press_gain = 6.0
+decay_per_sec = 18.0
+time_limit_sec = 0.0
+is_boss = false
+
+[sub_resource type="Resource" id="w60"]
+script = ExtResource("2_wc")
+weight_kg = 60
+label = "60 kg"
+press_gain = 5.0
+decay_per_sec = 25.0
+time_limit_sec = 0.0
+is_boss = false
+
+[sub_resource type="Resource" id="w80"]
+script = ExtResource("2_wc")
+weight_kg = 80
+label = "80 kg"
+press_gain = 4.0
+decay_per_sec = 32.0
+time_limit_sec = 45.0
+is_boss = false
+
+[sub_resource type="Resource" id="w100"]
+script = ExtResource("2_wc")
+weight_kg = 100
+label = "100 kg"
+press_gain = 3.0
+decay_per_sec = 40.0
+time_limit_sec = 40.0
+is_boss = false
+
+[sub_resource type="Resource" id="w120"]
+script = ExtResource("2_wc")
+weight_kg = 120
+label = "120 kg"
+press_gain = 2.5
+decay_per_sec = 50.0
+time_limit_sec = 35.0
+is_boss = false
+
+[sub_resource type="Resource" id="w140"]
+script = ExtResource("2_wc")
+weight_kg = 140
+label = "140 kg BOSS"
+press_gain = 2.0
+decay_per_sec = 65.0
+time_limit_sec = 30.0
+is_boss = true
+
+[resource]
+script = ExtResource("1_db")
+weights = [SubResource("w20"), SubResource("w40"), SubResource("w60"), SubResource("w80"), SubResource("w100"), SubResource("w120"), SubResource("w140")]

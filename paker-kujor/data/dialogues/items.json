@@ -1,0 +1,60 @@
+{
+  "drzwi": {
+    "speaker": "Drzwi",
+    "lines": [
+      "Z piwnicy już nie uciekniesz...",
+      "Chyba że po treningu.",
+      "Albo po pokonaniu bossa 140 kg.",
+      "Drzwi są zawalone proteiną i determinacją."
+    ]
+  },
+  "proteina": {
+    "speaker": "Proteina",
+    "lines": [
+      "Smakuje jak plastik.",
+      "+0 do siły, +100 do lore.",
+      "Chcesz ją? Oczywiście że tak. Każdy chce."
+    ]
+  },
+  "chalk": {
+    "speaker": "Chalk",
+    "lines": [
+      "Biały pył nadziei.",
+      "Daje +10% press_gain w minigrze.",
+      "Twoje dłonie nigdy nie były bardziej gotowe."
+    ]
+  },
+  "gazeta": {
+    "speaker": "Gazeta",
+    "lines": [
+      "Stary numer Golden Gym Weekly.",
+      "'LOKALNY BOHATER PODNOSI 140 KG W PIWNICY'",
+      "Artykuł o tobie... ale data jest z przyszłości."
+    ]
+  },
+  "poster_golden": {
+    "speaker": "Poster",
+    "lines": [
+      "Złoty poster Golden Gym.",
+      "Na nim muskularny szkielet w bandance.",
+      "Motyw: 'NO PAIN NO MAIN MENU.'"
+    ]
+  },
+  "lustro": {
+    "speaker": "Lustro",
+    "lines": [
+      "Patrzysz w lustro.",
+      "Widzisz przyszłego Paker Kujora.",
+      "Albo zmęczonego gościa po trzech seriach.",
+      "Golden Gym zaczyna się w głowie."
+    ]
+  },
+  "radio": {
+    "speaker": "Radio",
+    "lines": [
+      "Stare radio na regale.",
+      "Klik — muzyka w tle włączona/wyłączona.",
+      "Leci chiptune remix 'Megalovania'... nie, to nasze BGM."
+    ]
+  }
+}

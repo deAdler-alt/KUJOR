@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#1a1a2e"/>
+  <rect x="20" y="60" width="88" height="8" fill="#888"/>
+  <rect x="30" y="52" width="8" height="24" fill="#ffd700"/>
+  <rect x="90" y="52" width="8" height="24" fill="#ffd700"/>
+  <text x="64" y="40" text-anchor="middle" font-family="monospace" font-size="14" fill="#ffd700">PK</text>
+</svg>

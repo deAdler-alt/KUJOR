@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://main00001"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://titlescreen1" path="res://scenes/ui/title_screen.tscn" id="2_title"]
+[ext_resource type="PackedScene" uid="uid://basement01" path="res://scenes/rooms/basement.tscn" id="3_basement"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_main")
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_title")]
+
+[node name="Basement" parent="." instance=ExtResource("3_basement")]
+visible = false
