@@ -80,6 +80,7 @@ export class BenchMinigame {
       GameState.setPlayerLocked(false);
       return false;
     }
+    dialogueManager.reset();
     this.weightKg = weightKg;
     this.progress = 0;
     this.timeLeft = cfg.timeLimitSec;
@@ -101,6 +102,10 @@ export class BenchMinigame {
     return this.active || this.bossPause;
   }
 
+  isBossPause(): boolean {
+    return this.bossPause;
+  }
+
   cancel(): void {
     if (!this.isActive()) return;
     this.active = false;
@@ -108,6 +113,7 @@ export class BenchMinigame {
     this.setVisible(false);
     AudioManager.playBgm('bgm_basement');
     GameState.setPlayerLocked(false);
+    dialogueManager.reset();
     this.callbacks.onComplete(false);
   }
 

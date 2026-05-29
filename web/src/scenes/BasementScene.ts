@@ -37,6 +37,7 @@ export class BasementScene extends Phaser.Scene {
   create(): void {
     GameState.currentRoom = 'basement';
     GameState.setPlayerLocked(false);
+    dialogueManager.reset();
     this.keys = bindKeyboard(this);
     AudioManager.playBgm('bgm_basement');
 
@@ -151,16 +152,24 @@ export class BasementScene extends Phaser.Scene {
       return;
     }
 
-    if (dialogueManager.state.active) {
-      if (isInteractDown(this.keys)) dialogueManager.advance();
-      return;
-    }
+    const benchActive = this.benchMinigame.isActive();
+    const benchBossDialogue = benchActive && this.benchMinigame.isBossPause();
 
-    if (this.benchMinigame.isActive()) {
+    if (benchActive && !benchBossDialogue) {
       if (isKeyDown(this.keys.ESC) || isKeyDown(this.keys.X)) {
         this.benchMinigame.cancel();
         return;
       }
+      this.benchMinigame.update(dt, isMashHeld(this.keys));
+      return;
+    }
+
+    if (dialogueManager.state.active) {
+      if (isInteractDown(this.keys)) dialogueManager.advance();
+      if (!benchActive) return;
+    }
+
+    if (benchActive) {
       this.benchMinigame.update(dt, isMashHeld(this.keys));
       return;
     }

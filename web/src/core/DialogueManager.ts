@@ -28,10 +28,21 @@ export class DialogueManager {
   private onFinish: DialogueCallback | null = null;
   private readonly CHARS_PER_SEC = 40;
 
+  reset(): void {
+    this.state.active = false;
+    this.state.speaker = '';
+    this.state.lines = [];
+    this.state.lineIndex = 0;
+    this.state.charIndex = 0;
+    this.state.waitingAdvance = false;
+    this.state.fullLine = '';
+    this.typewriterTimer = 0;
+    this.onFinish = null;
+  }
+
   start(speaker: string, lines: string[], onFinish?: DialogueCallback): void {
     if (this.state.active) {
-      this.onFinish = null;
-      this.state.active = false;
+      this.end();
     }
     this.state = {
       active: true,

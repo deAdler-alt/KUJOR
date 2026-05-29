@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { GameState } from '../core/GameState';
+import { dialogueManager } from '../core/DialogueManager';
 import { bindKeyboard, GAME_HEIGHT, GAME_WIDTH, isKeyDown, type Keys } from '../core/config';
 import { CONTROLS_HINT } from '../core/Controls';
 
@@ -36,6 +37,7 @@ export class TitleScene extends Phaser.Scene {
   update(): void {
     if (isKeyDown(this.keys.Z) || isKeyDown(this.keys.SPACE) || isKeyDown(this.keys.ENTER)) {
       GameState.resetNewGame();
+      dialogueManager.reset();
       this.scene.start('BasementScene');
     }
   }

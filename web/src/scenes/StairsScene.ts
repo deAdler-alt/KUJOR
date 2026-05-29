@@ -29,6 +29,7 @@ export class StairsScene extends Phaser.Scene {
   create(): void {
     GameState.currentRoom = 'stairs';
     GameState.setPlayerLocked(false);
+    dialogueManager.reset();
     this.keys = bindKeyboard(this);
     AudioManager.playBgm('bgm_hub');
 
