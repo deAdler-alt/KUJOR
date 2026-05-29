@@ -48,13 +48,13 @@ export interface WeightConfig {
 }
 
 export const WEIGHT_CONFIGS: WeightConfig[] = [
-  { weightKg: 20, label: '20 kg', pressGain: 8, decayPerSec: 12, timeLimitSec: 0, isBoss: false },
-  { weightKg: 40, label: '40 kg', pressGain: 6, decayPerSec: 18, timeLimitSec: 0, isBoss: false },
-  { weightKg: 60, label: '60 kg', pressGain: 5, decayPerSec: 25, timeLimitSec: 0, isBoss: false },
-  { weightKg: 80, label: '80 kg', pressGain: 4, decayPerSec: 32, timeLimitSec: 45, isBoss: false },
-  { weightKg: 100, label: '100 kg', pressGain: 3, decayPerSec: 40, timeLimitSec: 40, isBoss: false },
-  { weightKg: 120, label: '120 kg', pressGain: 2.5, decayPerSec: 50, timeLimitSec: 35, isBoss: false },
-  { weightKg: 140, label: '140 kg BOSS', pressGain: 2, decayPerSec: 65, timeLimitSec: 30, isBoss: true },
+  { weightKg: 20, label: '20 kg', pressGain: 14, decayPerSec: 6, timeLimitSec: 0, isBoss: false },
+  { weightKg: 40, label: '40 kg', pressGain: 12, decayPerSec: 10, timeLimitSec: 0, isBoss: false },
+  { weightKg: 60, label: '60 kg', pressGain: 10, decayPerSec: 14, timeLimitSec: 0, isBoss: false },
+  { weightKg: 80, label: '80 kg', pressGain: 9, decayPerSec: 18, timeLimitSec: 55, isBoss: false },
+  { weightKg: 100, label: '100 kg', pressGain: 8, decayPerSec: 22, timeLimitSec: 50, isBoss: false },
+  { weightKg: 120, label: '120 kg', pressGain: 7, decayPerSec: 26, timeLimitSec: 45, isBoss: false },
+  { weightKg: 140, label: '140 kg BOSS', pressGain: 9, decayPerSec: 24, timeLimitSec: 50, isBoss: true },
 ];
 
 export function getWeightConfig(kg: number): WeightConfig | undefined {

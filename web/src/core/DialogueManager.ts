@@ -111,6 +111,17 @@ export class DialogueManager {
     if (GameState.hasFlag('beat_140')) {
       return GameState.allItemsCollected() ? 'krzysiek_true_ending' : 'krzysiek_boss_win';
     }
+    if (!GameState.hasFlag('stairs_cleared')) {
+      if (!GameState.hasFlag('quest_stairs') && GameState.hasFlag('met_trainer')) {
+        return 'krzysiek_quest_start';
+      }
+      if (GameState.hasFlag('quest_stairs') && GameState.canEnterStairs()) {
+        return 'krzysiek_quest_done';
+      }
+      if (GameState.hasFlag('quest_stairs')) {
+        return 'krzysiek_quest_progress';
+      }
+    }
     if (!GameState.hasFlag('met_trainer')) return 'krzysiek_intro';
     const w = GameState.maxWeightUnlocked;
     if (w >= 120) return 'krzysiek_before_boss';

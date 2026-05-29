@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { PROPS_FRAME } from '../core/AssetKeys';
 import { AudioManager } from '../core/AudioManager';
-import { bindKeyboard, GAME_HEIGHT, GAME_WIDTH, isInteractDown, isKeyDown, type Keys } from '../core/config';
+import { bindKeyboard, GAME_HEIGHT, GAME_WIDTH, isInteractDown, isKeyDown, isMashHeld, type Keys } from '../core/config';
 import { CONTROLS_HINT } from '../core/Controls';
 import { GameState } from '../core/GameState';
 import { dialogueManager } from '../core/DialogueManager';
@@ -36,6 +36,7 @@ export class BasementScene extends Phaser.Scene {
 
   create(): void {
     GameState.currentRoom = 'basement';
+    GameState.setPlayerLocked(false);
     this.keys = bindKeyboard(this);
     AudioManager.playBgm('bgm_basement');
 
@@ -160,7 +161,7 @@ export class BasementScene extends Phaser.Scene {
         this.benchMinigame.cancel();
         return;
       }
-      this.benchMinigame.update(dt, isInteractDown(this.keys));
+      this.benchMinigame.update(dt, isMashHeld(this.keys));
       return;
     }
 
@@ -223,13 +224,16 @@ export class BasementScene extends Phaser.Scene {
       case 'bench':
         this.openWeightMenu();
         break;
-      case 'npc':
+      case 'npc': {
+        const trenerId = dialogueManager.pickTrenerDialogue();
         GameState.setPlayerLocked(true);
-        dialogueManager.startTrener(dialogueManager.pickTrenerDialogue(), () => {
+        dialogueManager.startTrener(trenerId, () => {
           if (!GameState.hasFlag('met_trainer')) GameState.setFlag('met_trainer');
+          if (trenerId === 'krzysiek_quest_start') GameState.setFlag('quest_stairs');
           GameState.setPlayerLocked(false);
         });
         break;
+      }
       case 'collectible':
         GameState.setPlayerLocked(true);
         dialogueManager.startItem(itemId, () => {
@@ -242,11 +246,7 @@ export class BasementScene extends Phaser.Scene {
         });
         break;
       case 'door':
-        GameState.setPlayerLocked(true);
-        dialogueManager.startItem('drzwi', () => {
-          if (!GameState.hasItem('drzwi')) GameState.addItem('drzwi');
-          GameState.setPlayerLocked(false);
-        });
+        this.handleDoor();
         break;
       case 'radio':
         GameState.setPlayerLocked(true);
@@ -263,18 +263,54 @@ export class BasementScene extends Phaser.Scene {
     }
   }
 
+  private handleDoor(): void {
+    GameState.setPlayerLocked(true);
+    if (GameState.hasFlag('stairs_cleared')) {
+      GameState.setPlayerLocked(false);
+      GameState.currentRoom = 'stairs';
+      GameState.playerPosition = { x: 320, y: 290 };
+      this.scene.start('StairsScene');
+      return;
+    }
+    if (GameState.canEnterStairs()) {
+      dialogueManager.start('Krzysiek', [
+        'Masz trzy fanty? Schody są wolne.',
+        'Na górze czeka nagroda — idź!',
+      ], () => {
+        GameState.setPlayerLocked(false);
+        GameState.currentRoom = 'stairs';
+        GameState.playerPosition = { x: 320, y: 290 };
+        this.scene.start('StairsScene');
+      });
+      return;
+    }
+    if (GameState.hasFlag('quest_stairs')) {
+      const need = 3 - GameState.countQuestCollectibles();
+      dialogueManager.start('Drzwi', [
+        'Schody do garażu Krzyśka. Zamknięte na kłódkę.',
+        `Brakuje jeszcze ${need} fant(ów) z piwnicy.`,
+        'Zbierz i wróć.',
+      ], () => GameState.setPlayerLocked(false));
+      return;
+    }
+    dialogueManager.startItem('drzwi', () => GameState.setPlayerLocked(false));
+  }
+
   private updateHud(): void {
     const chalk = GameState.hasItem('chalk') ? ' +chalk' : '';
     const prompt = this.nearest ? ` | [Z] ${this.promptLabel(this.nearest)}` : '';
     const vol = ` | ${AudioManager.volumePercent}%`;
+    const quest = GameState.hasFlag('quest_stairs') && !GameState.hasFlag('stairs_cleared')
+      ? ` | quest ${GameState.countQuestCollectibles()}/3`
+      : '';
     this.hud.setText(
-      `LV${GameState.level} ${GameState.xp}/${GameState.getXpToNext()}XP | ${GameState.maxWeightUnlocked}kg${chalk}${prompt}${vol} | ${CONTROLS_HINT}`,
+      `LV${GameState.level} ${GameState.xp}/${GameState.getXpToNext()}XP | ${GameState.maxWeightUnlocked}kg${chalk}${quest}${prompt}${vol} | ${CONTROLS_HINT}`,
     );
   }
 
   private promptLabel(def: MapObjectDef): string {
     const labels: Record<string, string> = {
-      bench: 'Ławka', npc: 'Krzysiek', portal: 'Pak Kujora', door: 'Drzwi', radio: 'Radio',
+      bench: 'Ławka', npc: 'Krzysiek', portal: 'Pak Kujora', door: 'Schody', radio: 'Radio',
       proteina: 'Proteina', chalk: 'Chalk', gazeta: 'Gazeta', poster_rap: 'Plakat',
       poster_golden: 'Plakat', lustro: 'Lustro', beatpad: 'Beatpad', drzwi: 'Drzwi',
       przedtreningowka: 'Pre', kreatyna: 'Kreatyna', shaker: 'Shaker', mikrofon: 'Mikrofon',

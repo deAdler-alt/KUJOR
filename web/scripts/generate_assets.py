@@ -305,6 +305,36 @@ def build_basement_map() -> None:
     write_map("basement", floor, decor, walls, objects)
 
 
+def build_stairs_map() -> None:
+    """Wąski korytarz schodów — drugi pokój."""
+    F, FV, W, WT, S, CARPET, _, _, NEON, _, RUBBER, _, P, _, LIGHT, _CR = range(16)
+
+    floor, decor, walls = [], [], []
+    for y in range(MAP_H):
+        for x in range(MAP_W):
+            edge = y < 2 or y >= MAP_H - 2 or x < 1 or x >= MAP_W - 2
+            stair_col = 17 <= x <= 22
+            if edge:
+                floor.append(gid(W))
+                decor.append(0)
+                walls.append(gid(WT if y < 2 else W))
+            elif stair_col:
+                floor.append(gid(RUBBER if y % 2 == 0 else FV))
+                decor.append(gid(LIGHT) if y in (4, 10, 16) else 0)
+                walls.append(0)
+            else:
+                floor.append(gid(F))
+                decor.append(0)
+                walls.append(gid(S) if x < 5 or x > 34 else 0)
+
+    objects = [
+        {"id": "stairs_down", "type": "door", "x": 320, "y": 310},
+        {"id": "trener", "type": "npc", "x": 320, "y": 88},
+        {"id": "spawn", "type": "spawn", "x": 320, "y": 290},
+    ]
+    write_map("stairs", floor, decor, walls, objects)
+
+
 def build_hub_map() -> None:
     floor, decor, walls = [], [], []
     FH, _, HW = 6, 7, 7
@@ -393,6 +423,7 @@ def main() -> None:
     make_decor_sheet()
     build_basement_map()
     build_hub_map()
+    build_stairs_map()
     print("Done.")
 
 

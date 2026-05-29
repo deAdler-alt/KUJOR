@@ -10,7 +10,7 @@ export class BootScene extends Phaser.Scene {
 
   preload(): void {
     this.load.tilemapTiledJSON('basement', ASSETS.maps.basement);
-    this.load.tilemapTiledJSON('hub', ASSETS.maps.hub);
+    this.load.tilemapTiledJSON('stairs', ASSETS.maps.stairs);
     this.load.image('piwnica_tileset', ASSETS.tilesets.piwnica);
     this.load.spritesheet('player', ASSETS.sprites.player, { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('trener', ASSETS.sprites.trener, { frameWidth: 32, frameHeight: 32 });

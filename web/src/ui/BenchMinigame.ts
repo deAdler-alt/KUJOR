@@ -9,8 +9,9 @@ export interface BenchMinigameCallbacks {
   onComplete: (success: boolean) => void;
 }
 
-const BOSS_PHASE2_DECAY_MULT = 1.3;
-const BOSS_PHASE2_DURATION = 10;
+const BOSS_PHASE2_DECAY_MULT = 1.12;
+const BOSS_PHASE2_DURATION = 8;
+const MASH_INTERVAL_SEC = 0.065;
 const BAR_X = GAME_WIDTH / 2 - 140;
 const BAR_Y = 118;
 const BAR_W = 280;
@@ -37,6 +38,7 @@ export class BenchMinigame {
   private bossPause = false;
   private bossPauseDone = false;
   private weightKg = 20;
+  private mashCooldown = 0;
 
   constructor(scene: Phaser.Scene, callbacks: BenchMinigameCallbacks) {
     this.scene = scene;
@@ -67,7 +69,7 @@ export class BenchMinigame {
       fontFamily: 'monospace', fontSize: '14px', color: '#ffffff',
     }).setOrigin(0.5).setDepth(952).setVisible(false);
 
-    this.hintLabel = scene.add.text(GAME_WIDTH / 2, 210, 'Mash Z / Space!  Esc = wyjście', {
+    this.hintLabel = scene.add.text(GAME_WIDTH / 2, 210, 'Trzymaj Z / Space!', {
       fontFamily: 'monospace', fontSize: '12px', color: '#aaaaaa',
     }).setOrigin(0.5).setDepth(952).setVisible(false);
   }
@@ -86,6 +88,7 @@ export class BenchMinigame {
     this.bossPhase2Timer = 0;
     this.bossPause = false;
     this.bossPauseDone = false;
+    this.mashCooldown = 0;
     this.active = true;
     this.setVisible(true);
     GameState.setPlayerLocked(true);
@@ -108,12 +111,19 @@ export class BenchMinigame {
     this.callbacks.onComplete(false);
   }
 
-  update(deltaSec: number, mashPressed: boolean): void {
+  update(deltaSec: number, mashHeld: boolean): void {
     if (!this.active || this.bossPause) return;
     const cfg = getWeightConfig(this.weightKg);
     if (!cfg) {
       this.cancel();
       return;
+    }
+
+    this.mashCooldown -= deltaSec;
+    let mashPressed = false;
+    if (mashHeld && this.mashCooldown <= 0) {
+      mashPressed = true;
+      this.mashCooldown = MASH_INTERVAL_SEC;
     }
 
     let decay = cfg.decayPerSec;
@@ -212,7 +222,7 @@ export class BenchMinigame {
     if (cfg.timeLimitSec > 0) {
       this.timerLabel.setText(`Czas: ${Math.max(0, Math.ceil(this.timeLeft))} s`);
     }
-    this.hintLabel.setText(this.bossPhase2 ? 'BOSS FAZA 2! SPAMUJ!' : 'Mash Z / Space!  Esc = wyjście');
+    this.hintLabel.setText(this.bossPhase2 ? 'BOSS FAZA 2! TRZYMAJ Z!' : 'Trzymaj Z / Space!  Esc = wyjście');
 
     const fillW = BAR_W * (this.progress / 100);
     this.barFill.width = Math.max(0, fillW);

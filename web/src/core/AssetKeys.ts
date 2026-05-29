@@ -2,6 +2,7 @@ export const ASSETS = {
   maps: {
     basement: 'assets/maps/basement.json',
     hub: 'assets/maps/hub.json',
+    stairs: 'assets/maps/stairs.json',
   },
   tilesets: {
     piwnica: 'assets/tilesets/piwnica_tileset.png',

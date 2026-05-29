@@ -14,7 +14,7 @@ class GameStateManager {
   inventory: string[] = [];
   flags: Record<string, boolean> = {};
   playerPosition = { x: 320, y: 300 };
-  currentRoom: 'basement' | 'hub' = 'basement';
+  currentRoom: 'basement' | 'hub' | 'stairs' = 'basement';
   level = 1;
   xp = 0;
   completedWeights: number[] = [];
@@ -83,7 +83,19 @@ class GameStateManager {
     if (this.hasItem('chalk')) m += 0.1;
     if (this.hasItem('beatpad')) m += 0.05;
     if (this.hasItem('przedtreningowka')) m += 0.08;
+    m += this.completedWeights.length * 0.03;
     return m;
+  }
+
+  /** Fanty na quest schodów (bez drzwi/radia). */
+  countQuestCollectibles(): number {
+    return ALL_ITEMS.filter(
+      (id) => id !== 'drzwi' && id !== 'radio' && this.inventory.includes(id),
+    ).length;
+  }
+
+  canEnterStairs(): boolean {
+    return this.hasFlag('quest_stairs') && this.countQuestCollectibles() >= 3;
   }
 
   getUnlockedWeights(): number[] {

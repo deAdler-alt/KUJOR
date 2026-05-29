@@ -12,8 +12,33 @@
     "speaker": "Krzysiek",
     "lines": [
       "Ławka czeka. Bicepsy też.",
-      "Im ciężej, tym szybciej spada pasek postępu.",
-      "Chalk daje +10%. Beatpad +5%. Szukaj sprzętu."
+      "Im ciężej, tym szybciej spada pasek — trzymaj Z / Space.",
+      "Chalk +10%. Beatpad +5%. Pre +8%. Szukaj sprzętu."
+    ]
+  },
+  "krzysiek_quest_start": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "Ziomek, mam robotę. Na górze jest mój garaż.",
+      "Schody są zamknięte — otworzę jak przyniesiesz 3 fanty z piwnicy.",
+      "Cokolwiek: proteina, chalk, plakat… liczy się.",
+      "Jak masz trzy — idź do drzwi u góry mapy."
+    ]
+  },
+  "krzysiek_quest_progress": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "Jeszcze nie masz trzech fantów.",
+      "Przejrzyj piwnicę — regał, studio, kąty.",
+      "Jak zbierzesz — drzwi na górze mapy cię wpuści."
+    ]
+  },
+  "krzysiek_quest_done": {
+    "speaker": "Krzysiek",
+    "lines": [
+      "Trzy fanty? Legit. Schody są otwarte!",
+      "Wejdź przez drzwi u góry — na górze czeka niespodzianka.",
+      "Nie zapomnij ławki po drodze, ziom."
     ]
   },
   "krzysiek_after_40": {

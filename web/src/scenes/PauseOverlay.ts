@@ -93,6 +93,7 @@ export class PauseOverlay extends Phaser.Scene {
   private goTitle(): void {
     this.scene.stop('BasementScene');
     this.scene.stop('CharacterHubScene');
+    this.scene.stop('StairsScene');
     this.close();
     this.scene.start('TitleScene');
   }
@@ -101,5 +102,6 @@ export class PauseOverlay extends Phaser.Scene {
     this.scene.stop('PauseOverlay');
     this.scene.resume('BasementScene');
     this.scene.resume('CharacterHubScene');
+    this.scene.resume('StairsScene');
   }
 }

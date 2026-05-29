@@ -75,6 +75,10 @@ export function bindKeyboard(scene: Phaser.Scene): Keys {
   };
 }
 
+export function isMashHeld(keys: Keys): boolean {
+  return keys.Z.isDown || keys.SPACE.isDown || keys.ENTER.isDown;
+}
+
 export function isInteractDown(keys: Keys): boolean {
   return Phaser.Input.Keyboard.JustDown(keys.Z) ||
     Phaser.Input.Keyboard.JustDown(keys.SPACE) ||
